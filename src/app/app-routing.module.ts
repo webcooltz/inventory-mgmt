@@ -1,7 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddItemComponent } from './add-item/add-item.component';
+import { LandingComponent } from './landing/landing.component';
+import { LookupDetailComponent } from './lookup/lookup-detail/lookup-detail.component';
+import { LookupEditComponent } from './lookup/lookup-edit/lookup-edit.component';
+import { LookupStartComponent } from './lookup/lookup-start/lookup-start.component';
+import { LookupComponent } from './lookup/lookup.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
+  { path: 'landing', component: LandingComponent },
+  { path: 'lookup', component: LookupComponent, children: [
+    { path: '', component: LookupDetailComponent },
+    { path: ':id', component: LookupEditComponent }
+  ]},
+  { path: 'add-item', component: AddItemComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
