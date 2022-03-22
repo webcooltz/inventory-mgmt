@@ -12,9 +12,9 @@ const routes: Routes = [
   { path: 'landing', component: LandingComponent },
   { path: 'lookup', component: LookupComponent, children: [
     { path: '', component: LookupDetailComponent },
+    { path: 'new', component: AddItemComponent },
     { path: ':id', component: LookupEditComponent }
-  ]},
-  { path: 'add-item', component: AddItemComponent }
+  ]}
 ];
 
 @NgModule({
